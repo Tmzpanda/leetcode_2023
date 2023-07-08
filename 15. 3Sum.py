@@ -1,3 +1,4 @@
+# O(n^2) O(1)
 def threeSum(nums: List[int]) -> List[List[int]]:
     nums = sorted(nums)
     n = len(nums)
