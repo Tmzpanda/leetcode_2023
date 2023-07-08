@@ -16,7 +16,6 @@ def threeSum(nums: List[int]) -> List[List[int]]:
                     continue
                 res.append([nums[i], nums[l], nums[r]]) 
                 l += 1; r -= 1
-
             elif s < 0:
                 l += 1
             else:
