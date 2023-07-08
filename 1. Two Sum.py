@@ -1,3 +1,4 @@
+# O(n) O(n)
 def twoSum(nums: List[int], target: int) -> List[int]:
     num_dict = {}
     for i, num in enumerate(nums):
