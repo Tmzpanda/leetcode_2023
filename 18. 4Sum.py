@@ -1,4 +1,5 @@
-def fourSum(self, nums: List[int], target: int) -> List[List[int]]:
+# O(n^3)
+def fourSum(nums: List[int], target: int) -> List[List[int]]:
     nums = sorted(nums)
     n = len(nums)
     res = []
