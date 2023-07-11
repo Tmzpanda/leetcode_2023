@@ -17,7 +17,7 @@ def combinationSum4(nums: List[int], target: int) -> int:
 # dp 
 def combinationSum4(nums: List[int], target: int) -> int:
     n = len(nums)
-    dp = [0 for _ in range(target + 1)]    # dp[i] denotes #of combinations that sum up to i
+    dp = [0 for _ in range(target + 1)]    # dp[s] denotes #of combinations that sum up to s
     dp[0] = 1
 
     for s in range(1, target + 1):
