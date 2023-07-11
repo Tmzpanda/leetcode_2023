@@ -22,7 +22,7 @@ def combinationSum4(nums: List[int], target: int) -> int:
 
     for s in range(1, target + 1):
         for num in nums:
-            if num <= s:
+            if s - num >= 0:
                 dp[s] += dp[s - num]
     
     return dp[target]
