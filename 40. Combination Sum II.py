@@ -14,7 +14,7 @@ def combinationSum2(nums: List[int], target: int) -> List[List[int]]:
             if i > 0 and nums[i] == nums[i - 1] and i != start:    # deduplicate
                 continue
             combination.append(nums[i])
-            dfs(i + 1, target - nums[i], combination)    # used once
+            dfs(i + 1, target - nums[i], combination)
             combination.pop()
         
     dfs(0, target, [])
