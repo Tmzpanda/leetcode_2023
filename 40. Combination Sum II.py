@@ -1,3 +1,4 @@
+# O(2^n)
 def combinationSum2(nums: List[int], target: int) -> List[List[int]]:
     nums = sorted(nums)
     n = len(nums)
