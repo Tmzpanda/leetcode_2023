@@ -23,12 +23,14 @@ def change(amount: int, coins: List[int]) -> int:
 
 # dp
 """
+coins = [1, 2, 5], amount = 5
+
     0  1  2  3  4  5  amount
 coins
-0
-1   
-2   
-5                  x = dp[i][s]
+0   1  
+1   1  x 
+2   1  
+5   1              x = dp[i][s] denotes #of ways to make change for amount s with coins[:i]
 """
 def change(amount: int, coins: List[int]) -> int:
     n = len(coins)
@@ -36,10 +38,10 @@ def change(amount: int, coins: List[int]) -> int:
     for i in range(n):
         dp[i][0] = 1
 
-    for i in range(n)
+    for i in range(1, n + 1):
         for s in range(1, amount + 1):
-            if coins[i] <= s:
-                dp[i][s] = dp[i + 1][s] + dp[i][s - coins[i]]
+            if coins[i - 1] <= s:
+                dp[i][s] = dp[i + 1][s] + dp[i][s - coins[i - 1]]
             else:
                 dp[i][s] += dp[i + 1][s]
 
