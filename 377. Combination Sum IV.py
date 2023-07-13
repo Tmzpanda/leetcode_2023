@@ -6,6 +6,9 @@ def combinationSum4(nums: List[int], target: int) -> int:
     def dfs(s):
         if s == 0:
             return 1
+        if s in memo:
+            return memo[s]
+            
         res = 0
         for num in nums:
             if s - num >= 0:
