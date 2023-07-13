@@ -44,12 +44,12 @@ def change(amount: int, coins: List[int]) -> int:
             if coins[i - 1] <= s:
                 dp[i][s] = dp[i][s - coins[i-1]] + dp[i-1][s]
             else:
-                dp[i][s] += dp[i-1][s]
+                dp[i][s] = dp[i-1][s]
 
     return dp[n][amount]    # or dp[-1][-1]
 
 
-# space optimization
+# space optimization O(S)
 def change(amount: int, coins: List[int]) -> int:
     dp = [0] * (amount + 1)    
     dp[0] = 1
