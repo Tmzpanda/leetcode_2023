@@ -2,7 +2,7 @@
 # dfs
 def combinationSum4(nums: List[int], target: int) -> int:
 
-    @functools.lru_cache(maxsize=None)    # memoization
+    memo = {}
     def dfs(s):
         if s == 0:
             return 1
@@ -10,6 +10,8 @@ def combinationSum4(nums: List[int], target: int) -> int:
         for num in nums:
             if s - num >= 0:
                 res += dfs(s - num)
+                
+        memo[s] = res
         return res
       
     return dfs(target)
