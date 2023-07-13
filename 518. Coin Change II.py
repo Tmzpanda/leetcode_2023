@@ -49,7 +49,7 @@ def change(amount: int, coins: List[int]) -> int:
     return dp[n][amount]    # or dp[-1][-1]
 
 
-# space optimization O(S)
+# space optimization O(n*S) -> O(S)
 def change(amount: int, coins: List[int]) -> int:
     dp = [0] * (amount + 1)    
     dp[0] = 1
