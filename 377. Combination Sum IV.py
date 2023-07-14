@@ -11,7 +11,7 @@ def combinationSum4(nums: List[int], target: int) -> int:
             
         res = 0
         for num in nums:
-            if s - num >= 0:
+            if num <= s:
                 res += dfs(s - num)
                 
         memo[s] = res
@@ -27,7 +27,7 @@ def combinationSum4(nums: List[int], target: int) -> int:
 
     for s in range(1, target + 1):
         for num in nums:
-            if s - num >= 0:
+            if num <= s:
                 dp[s] += dp[s - num]
     
     return dp[target]
