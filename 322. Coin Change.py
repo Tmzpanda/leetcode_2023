@@ -22,7 +22,7 @@ def coinChange(coins, amount):
 
 # dp
 def coinChange(coins, amount):
-    dp = [sys.maxsize for _ in range(amount + 1)]
+    dp = [sys.maxsize for _ in range(amount + 1)]    # dp[s] denotes minimum #of ways to make change for amount s   
     dp[0] = 0
     
     for s in range(1, amount + 1):
