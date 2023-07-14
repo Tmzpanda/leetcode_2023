@@ -10,6 +10,7 @@ def combinationSum2(nums: List[int], target: int) -> List[List[int]]:
         if target < 0:
             return 
 
+        # backtrack
         for i in range(start, n):
             if i > 0 and nums[i] == nums[i - 1] and i != start:    # deduplicate
                 continue
