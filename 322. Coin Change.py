@@ -1,3 +1,4 @@
+# O(S*n)
 # dfs
 def coinChange(coins, amount):
     memo = {}
