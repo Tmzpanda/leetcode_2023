@@ -1,4 +1,4 @@
-# O(n * S)
+# O(n*S)
 # dfs
 def canPartition(nums: List[int]) -> bool:
     n = len(nums)
