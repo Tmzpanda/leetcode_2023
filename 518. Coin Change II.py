@@ -6,20 +6,20 @@ def change(amount: int, coins: List[int]) -> int:
     def dfs(i, s):
         if s == 0:
             return 1
-        if i == n:
+        if i == -1:
             return 0
         if (i, s) in memo:
             return memo[(i, s)]
 
         if coins[i] <= s:
-            res = dfs(i, s - coins[i]) + dfs(i + 1, s)
+            res = dfs(i, s - coins[i]) + dfs(i - 1, s)
         else:
-            res = dfs(i + 1, s)
+            res = dfs(i - 1, s)
 
         memo[(i, s)] = res
         return res
 
-    return dfs(0, amount)
+    return dfs(n - 1, amount)
 
 
 # dp
