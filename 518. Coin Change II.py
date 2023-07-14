@@ -24,7 +24,8 @@ def change(amount: int, coins: List[int]) -> int:
 
 # dp
 """
-coins = [1, 2, 5], amount = 5
+coins = [1, 2, 5]
+amount = 5
 
     0  1  2  3  4  5  amount
 coins
@@ -59,3 +60,4 @@ def change(amount: int, coins: List[int]) -> int:
             dp[s] += dp[s - coin]
 
     return dp[amount]
+
