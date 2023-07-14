@@ -1,7 +1,6 @@
 # O(S*n)
 # dfs
 def combinationSum4(nums: List[int], target: int) -> int:
-
     memo = {}
     def dfs(s):
         if s == 0:
@@ -18,6 +17,7 @@ def combinationSum4(nums: List[int], target: int) -> int:
         return res
       
     return dfs(target)
+
 
 # dp 
 def combinationSum4(nums: List[int], target: int) -> int:
