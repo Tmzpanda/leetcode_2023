@@ -23,3 +23,4 @@ def eraseOverlapIntervals(intervals: List[List[int]]) -> int:
             prevEnd = min(end, prevEnd)
 
     return res
+
