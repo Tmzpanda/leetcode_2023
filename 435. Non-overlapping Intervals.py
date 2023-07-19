@@ -15,6 +15,7 @@ x-----x
 
 """
 
+# O(nlogn)
 def eraseOverlapIntervals(intervals: List[List[int]]) -> int:
     intervals = sorted(intervals)
 
