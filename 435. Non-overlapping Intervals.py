@@ -1,12 +1,15 @@
 """
-relationships between adjacent intervals:
+Relationships between adjacent intervals:
 
+start >= prevEnd:
 x-----x 
       x---x
 
+start < prevEnd:
+①
 x-----x
     x---x
-
+②
 x-----x
   x--x
 
