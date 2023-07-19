@@ -1,4 +1,6 @@
 """
+relationships between adjacent intervals
+
 x-----x 
       x---x
 
