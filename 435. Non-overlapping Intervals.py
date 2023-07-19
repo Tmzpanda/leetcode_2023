@@ -1,5 +1,5 @@
 """
-relationships between adjacent intervals
+relationships between adjacent intervals:
 
 x-----x 
       x---x
