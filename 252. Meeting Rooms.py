@@ -1,3 +1,4 @@
+# O(nlogn)
 def canAttendMeetings(intervals: List[List[int]]) -> bool:
     intervals = sorted(intervals)
 
