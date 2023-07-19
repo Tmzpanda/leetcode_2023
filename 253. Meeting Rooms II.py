@@ -1,3 +1,4 @@
+# O(nlogn)
 """
   x----xx------------------x
   4    9 9                 29
@@ -10,7 +11,6 @@ end = [9, 15, 23, 29]
        ^e
        
 """
-# O(nlogn)
 def minMeetingRooms(intervals: List[List[int]]) -> int:
     start = sorted([interval[0] for interval in intervals])
     end = sorted([interval[1] for interval in intervals])
