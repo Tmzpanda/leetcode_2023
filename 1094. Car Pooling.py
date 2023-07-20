@@ -1,14 +1,16 @@
 def carPooling(trips: List[List[int]], capacity: int) -> bool:
     passChange = []
-    for numPass, start, end in trips:
-        passChange.append([start, numPass])
-        passChange.append([end, -numPass])
+    for delta, start, end in trips:
+        passChange.append([start, delta])
+        passChange.append([end, -delta])
     passChange.sort()
 
     count = 0
-    for _, numPass in passChange:
-        count += numPass
+    for _, delta in passChange:
+        count += delta
         if count > capacity:
             return False
 
     return True
+    
+        
