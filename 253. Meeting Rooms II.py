@@ -17,7 +17,6 @@ def minMeetingRooms(intervals: List[List[int]]) -> int:
 
     s, e = 0, 0
     count, res = 0, 0
-
     while s < len(intervals):    # sweep line
         if start[s] < end[e]:
             count += 1
