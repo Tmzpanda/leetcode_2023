@@ -3,7 +3,6 @@ def subarraySum(nums: List[int], k: int) -> int:
     psum_freq_dict = defaultdict(int)
     psum_freq_dict[0] = 1
     res = 0
-    
     for num in nums: 
         psum += num
         if psum - k in psum_freq_dict:
