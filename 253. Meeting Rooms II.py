@@ -4,11 +4,6 @@
 x-------------x x------x
 2            15 16     23
 
-start = [2, 4, 9, 16]
-         ^s         
-end = [9, 15, 23, 29]
-       ^e
-       
 """
 # O(nlogn)
 def minMeetingRooms(intervals: List[List[int]]) -> int:
