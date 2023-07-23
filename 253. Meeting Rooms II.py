@@ -7,25 +7,6 @@ x-------------x x------x
 """
 # O(nlogn)
 def minMeetingRooms(intervals: List[List[int]]) -> int:
-    start = sorted([interval[0] for interval in intervals])
-    end = sorted([interval[1] for interval in intervals])
-
-    s, e = 0, 0
-    count, res = 0, 0
-    while s < len(intervals):    # sweep line
-        if start[s] < end[e]:
-            count += 1
-            s += 1
-        else:
-            count -= 1
-            e += 1
-        res = max(res, count)
-
-    return res
-
-
-# another implementation
-def minMeetingRooms(intervals: List[List[int]]) -> int:
     roomChange = []
     for interval in intervals:
         roomChange.append((interval[0], 1))
