@@ -8,7 +8,6 @@ def mergeSort(nums: List[int]) -> List[int]:
     mid = len(nums) // 2
     left = mergeSort(nums[:mid])
     right = mergeSort(nums[mid:])
-
     # merge
     merged = [] 
     i, j = 0, 0
