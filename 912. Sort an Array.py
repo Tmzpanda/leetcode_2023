@@ -17,7 +17,7 @@ def mergeSort(nums: List[int]) -> List[int]:
             merged.append(left[i])
             i += 1
         else:
-            merged.append()
+            merged.append(right[j])
             j += 1
           
     merged.extend(left[i:])
