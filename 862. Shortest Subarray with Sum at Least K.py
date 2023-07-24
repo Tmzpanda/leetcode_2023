@@ -9,7 +9,7 @@ def shortestSubarray(self, nums: List[int], k: int) -> int:
         while monoq and psum - monoq[0][1] >= k:
             res = min(res, i-monoq[0][0])
             monoq.popleft()
-        while monoq and psum <= monoq[-1][1]:   # monoq
+        while monoq and psum <= monoq[-1][1]:    # monoq
             monoq.pop()
         monoq.append((i, psum))
 
