@@ -25,6 +25,7 @@ def mergeSort(nums: List[int]) -> List[int]:
   
     return merged 
 
+
 # O(nlogn) O(1)
 def quickSort(nums, start, end):
     # base
