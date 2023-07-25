@@ -31,6 +31,7 @@ def sortArray(nums: List[int]) -> List[int]:
         # base
         if start >= end:      
             return
+            
         # partition
         pivot = nums[random.randint(start, end)]
         l, r = start, end
