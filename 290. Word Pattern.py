@@ -3,8 +3,8 @@ def wordPattern(pattern: str, s: str) -> bool:
     if len(pattern) != len(words):
         return False
     
-    charToWord = defaultdict(str)
-    wordToChar = defaultdict(str)
+    charToWord = {}
+    wordToChar = {}
 
     for c, w in zip(pattern, words):
         if c in charToWord and charToWord[c] != w:
