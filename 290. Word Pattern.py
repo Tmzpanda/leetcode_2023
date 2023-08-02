@@ -16,3 +16,25 @@ def wordPattern(pattern: str, s: str) -> bool:
         wordToChar[w] = c
     
     return True
+
+# another implementation
+def wordPattern(pattern: str, s: str) -> bool:
+    words = s.split(" ")
+    if len(pattern) != len(words):
+        return False
+    
+    charToWord = {}
+    wordToChar = {}
+
+    for c, w in zip(pattern, words):
+        if c in charToWord:
+            if w != charToWord[c]:
+                return False
+        else:
+            if w in wordToChar:
+                return False
+
+        charToWord[c] = w
+        wordToChar[w] = c
+    
+    return True
