@@ -10,7 +10,6 @@ def wordPatternMatch(pattern: str, s: str) -> bool:
                 return False
             return dfs(pattern[1:], s[len(word):])
         
-        # else
         for i in range(len(s)):
             word = s[:i+1]
             if word in wordToChar:
