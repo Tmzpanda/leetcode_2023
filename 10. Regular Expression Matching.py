@@ -1,6 +1,5 @@
 """
-s = "aab"
-p = "c*a*b"
+"aab" "c*a*b"
 
                 "c*"
               + /  \ -   
@@ -16,7 +15,7 @@ def isMatch(s: str, p: str) -> bool:
         if j == -1 and i != -1: return False
 
         if i == -1 and p[j] != '*': return False
-        if i == -1 and p[j] == '*':
+        if i == -1 and p[j] == '*':    # "a" "a*b*"
             k = j
             while k != -1 and p[k] == '*':
                 k -= 2
@@ -24,9 +23,10 @@ def isMatch(s: str, p: str) -> bool:
 
         if p[j] == '.' or s[i] == p[j]:
             if dfs(i - 1, j - 1): return True
-
         if p[j] == '*':
+            # use *
             if dfs(i, j - 2): return True
+            # not use *  
             if (p[j - 1] == s[i] or p[j - 1] == '.') and dfs(i - 1, j): return True
         
         return False
