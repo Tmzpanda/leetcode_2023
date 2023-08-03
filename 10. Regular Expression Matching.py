@@ -1,5 +1,6 @@
 """
 "aab" "c*a*b"
+"a"   "a*b*"
 
                 "c*"
               + /  \ -   
@@ -15,7 +16,7 @@ def isMatch(s: str, p: str) -> bool:
         if j == -1 and i != -1: return False
 
         if i == -1 and p[j] != '*': return False
-        if i == -1 and p[j] == '*':    # "a" "a*b*"
+        if i == -1 and p[j] == '*':    
             k = j
             while k != -1 and p[k] == '*':
                 k -= 2
