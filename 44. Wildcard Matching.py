@@ -14,7 +14,7 @@ def isMatch(s: str, p: str) -> bool:
             res = dfs(i, j + 1)
         # *
         elif p[j] == '*':
-            res = dfs(i, j + 1) or dfs(i + 1, j + 1) or dfs(i + 1, j)
+            res = dfs(i + 1, j) or dfs(i, j + 1) or dfs(i + 1, j + 1)
         # ?
         elif p[j] == '?' or p[j] == s[i]:
             res = dfs(i + 1, j + 1)
