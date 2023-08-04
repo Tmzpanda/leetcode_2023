@@ -7,7 +7,7 @@ def isMatch(s: str, p: str) -> bool:
             return memo[(i, j)]
         # p is used out
         if j == len(p) and i == len(s): return True
-        if j == len(p) and i < len(s): return False
+        if j == len(p) and i != len(s): return False
         # i is used out
         if i == len(s) and p[j] != '*': return False
         if i == len(s) and p[j] == '*':
