@@ -1,40 +1,18 @@
 def wordPattern(pattern: str, s: str) -> bool:
     words = s.split(" ")
-    if len(pattern) != len(words):
+    if len(pattern) != len(words): 
         return False
     
     charToWord = {}
-    wordToChar = {}
+    wordSet = set()
 
     for c, w in zip(pattern, words):
-        if c in charToWord and charToWord[c] != w:
+        if c in charToWord and charToWord[c] != w: 
             return False
-        if w in wordToChar and wordToChar[w] != c:
+        if c not in charToWord and w in wordSet:
             return False
-            
-        charToWord[c] = w
-        wordToChar[w] = c
-    
-    return True
-
-# another implementation
-def wordPattern(pattern: str, s: str) -> bool:
-    words = s.split(" ")
-    if len(pattern) != len(words):
-        return False
-    
-    charToWord = {}
-    wordToChar = {}
-
-    for c, w in zip(pattern, words):
-        if c in charToWord:
-            if w != charToWord[c]:
-                return False
-        else:
-            if w in wordToChar:
-                return False
 
         charToWord[c] = w
-        wordToChar[w] = c
+        wordSet.add(w)
     
     return True
