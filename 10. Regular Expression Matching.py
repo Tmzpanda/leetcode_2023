@@ -7,7 +7,7 @@ def isMatch(s: str, p: str) -> bool:
 
         # p is used out
         if j == -1 and i == -1: return True
-        if j == -1 and i != -1: return False
+        if j == -1: return False
         # i is used out
         if i == -1 and p[j] != '*': return False
         if i == -1 and p[j] == '*':
