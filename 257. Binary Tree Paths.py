@@ -8,7 +8,7 @@ def binaryTreePaths(root: TreeNode) -> List[str]:
             if node:
                 path.append(str(node.val))
                 dfs(node, path)
-                path.pop()       # backtrack
+                path.pop()       
 
     res = []
     dfs(root, [str(root.val)])
