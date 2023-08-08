@@ -4,7 +4,6 @@ def shortestPathBinaryMatrix(grid: List[List[int]]) -> int:
     if grid[0][0] == 1 or grid[n - 1][n - 1] == 1:
         return -1
 
-    directions = [(-1, 0), (-1, -1), (-1, 1), (0, 1), (0, -1), (1, 0), (1, 1), (1, -1)]
     queue = deque([(0, 0, 1)])
     visited = set([(0, 0)])
     while queue:
@@ -12,8 +11,7 @@ def shortestPathBinaryMatrix(grid: List[List[int]]) -> int:
         if i == n - 1 and j == n - 1:
             return distance
         
-        for delta in directions:
-            x, y = i + delta[0], j + delta[1]
+        for x, y in [(i-1, j-1), (i, j-1), (i+1, j-1), (i-1, j), (i+1, j), (i+1, j-1), (i, j+1), (i+1, j+1)]:
             if 0 <= x < n and 0 <= y < n and (x, y) not in visited and grid[x][y] == 0:
                 queue.append((x, y, distance + 1))
                 visited.add((x, y))
