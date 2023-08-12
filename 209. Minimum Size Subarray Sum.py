@@ -29,3 +29,4 @@ def minSubArrayLen(target: int, nums: List[int]) -> int:
         psumq.append((i, psum))
 
     return res if res != float('inf') else 0
+
