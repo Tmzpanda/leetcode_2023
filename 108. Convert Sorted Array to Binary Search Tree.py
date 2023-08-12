@@ -4,10 +4,9 @@ def sortedArrayToBST(self, nums: List[int]) -> TreeNode:
         if l > r:
             return None
             
-        # node
+        # d&q
         mid = (l + r) // 2
         root = TreeNode(nums[mid])
-        # d&q
         root.left = dfs(l, mid - 1)
         root.right = dfs(mid + 1, r)
         
