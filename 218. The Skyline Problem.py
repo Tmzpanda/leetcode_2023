@@ -8,16 +8,16 @@ def getSkyline(buildings: List[List[int]]) -> List[List[int]]:
     res = []
     heap = [0]  # max_heap
     for position, delta in heightChange:
-        if delta > 0:  # start
+        # start
+        if delta > 0:  
             if delta > -heap[0]:
                 res.append([position, delta])
             heappush(heap, -delta)
-        else:  # end
-            heap.remove(delta) 
+        # end
+        else:
+            heap.remove(delta)
             heapify(heap)
             if -delta > -heap[0]:
-                res.append([position, -maxHeap[0]])
+                res.append([position, -heap[0]])
 
     return res
-
-            
