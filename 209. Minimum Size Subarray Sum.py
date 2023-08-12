@@ -14,6 +14,7 @@ def minSubArrayLen(target: int, nums: List[int]) -> int:
     return res if res != float('inf') else 0
 
 
+# psum
 def minSubArrayLen(target: int, nums: List[int]) -> int:
     n = len(nums)
     psum = 0
