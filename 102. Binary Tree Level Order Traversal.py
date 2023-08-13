@@ -9,11 +9,9 @@ def levelOrder(root: Optional[TreeNode]) -> List[List[int]]:
         for _ in range(len(queue)):
             node = queue.popleft()
             level.append(node.val)
-            if node.left:
-                queue.append(node.left)
-            if node.right:
-                queue.append(node.right)
-                
+            for node in (node.left, node.right):
+                if node:
+                    queue.append(node)
         res.append(level)
         
     return res
