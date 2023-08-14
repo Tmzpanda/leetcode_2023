@@ -1,5 +1,4 @@
 def wordBreak(s: str, wordDict: List[str]) -> List[str]:
-  
     res = []
     def dfs(s, path):
         if not s:
