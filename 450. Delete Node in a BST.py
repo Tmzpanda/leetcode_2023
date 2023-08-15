@@ -20,7 +20,7 @@ def deleteNode(root: Optional[TreeNode], key: int) -> Optional[TreeNode]:
         
     return root
 
-def findSmallest(self, root):
+def findSmallest(root):
     while root.left:
         root = root.left
     return root
