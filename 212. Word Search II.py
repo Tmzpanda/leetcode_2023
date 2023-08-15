@@ -45,9 +45,9 @@ class Trie:
         cur.is_word = True
 
     def delete(self, word):
-        self._delete(self.root, word, 0)
+        self._deleteTrieNode(self.root, word, 0)
 
-    def _delete(self, node, word, index):
+    def _deleteTrieNode(self, node, word, index):
         if index == len(word):
             if node.is_word:
                 node.is_word = False
@@ -58,7 +58,7 @@ class Trie:
             return
         else:
             child_node = node.children[char]
-            self._delete(child_node, word, index + 1)
+            self._deleteTrieNode(child_node, word, index+1)
 
         if not child_node.children and not child_node.is_word:
             del node.children[char]
