@@ -8,11 +8,11 @@ def networkDelayTime(times: List[List[int]], n: int, k: int) -> int:
     heap = [(0, k)] 
     visited = set()
     while heap:
-        weight, node = heappop(heap)
-        visited.add(node)
-        if len(visited) == n: 
-            return weight
-        for next_node, next_weight in graph[node]:      # directed graph
-            heappush(heap, (weight+next_weight, next_node)) 
+        w, i = heappop(heap)
+        visited.add(i)
+        if len(visited) == n:
+            return w
+        for nei, neiWeight in graph[i]:      # directed graph
+            heappush(heap, (w+neiWeight, nei)) 
 
     return -1
