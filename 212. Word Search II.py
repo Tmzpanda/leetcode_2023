@@ -14,7 +14,6 @@ def findWords(board: List[List[str]], words: List[str]) -> List[str]:
                 dfs(x, y, node.children[board[x][y]], prefix+board[x][y])
                 visited.remove((x, y))
 
-    
     m, n = len(board), len(board[0])
     visited = set()
     res = []
@@ -57,9 +56,9 @@ class Trie:
         char = word[index]
         if char not in node.children:
             return
-
-        child_node = node.children[char]
-        self._delete(child_node, word, index + 1)
+        else:
+            child_node = node.children[char]
+            self._delete(child_node, word, index + 1)
 
         if not child_node.children and not child_node.is_word:
             del node.children[char]
