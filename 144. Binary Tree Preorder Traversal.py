@@ -1,4 +1,5 @@
 def preorderTraversal(root: TreeNode) -> List[int]:
+    res = []
     def dfs(node):
         if node is None:
             return
@@ -6,6 +7,5 @@ def preorderTraversal(root: TreeNode) -> List[int]:
         dfs(node.left)
         dfs(node.right)
 
-    res = []
     dfs(root)
     return res
