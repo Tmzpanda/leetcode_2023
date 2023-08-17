@@ -1,5 +1,33 @@
-# O(n*W)
-# dp  
+# dfs
+def knapSack(wt, val, W):
+    n = len(wt)
+    memo = {}
+
+    def dfs(i, w):
+        if (i, w) in memo:
+            return memo[(i, w)]
+        if i == -1 or w == 0:
+            return 0
+
+        if wt[i] <= w:
+            memo[(i, w)] = max(val[i] + dfs(i-1, w-wt[i]), dfs(i-1, w))
+        else:
+            memo[(i, w)] = dfs(i-1, w)
+              
+        return memo[(i, w)]
+
+    return dfs(n-1, W)
+
+
+
+
+
+
+
+
+
+
+# dp O(n*W)
 """
 wt = [1, 3, 4, 5]
 val = [1, 4, 5, 7]
