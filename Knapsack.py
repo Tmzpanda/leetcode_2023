@@ -19,14 +19,6 @@ def knapSack(wt, val, W):
     return dfs(n-1, W)
 
 
-
-
-
-
-
-
-
-
 # dp O(n*W)
 """
 wt = [1, 3, 4, 5]
