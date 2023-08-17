@@ -10,7 +10,7 @@ def findOrder(numCourses: int, prerequisites: List[List[int]]) -> List[int]:
     queue = deque([node for node in range(numCourses) if in_degrees[node] == 0])    
     order = []
     while queue:
-        node = queue.pop()      # not necessarily popoleft in topsort
+        node = queue.pop()      # not necessarily popoleft
         order.append(node)
         for next_node in graph[node]:
             in_degrees[next_node] -= 1
