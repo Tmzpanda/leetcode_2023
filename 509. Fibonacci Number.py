@@ -12,7 +12,7 @@ def fib(n: int) -> int:
         memo[n] = dfs(n - 1) + dfs(n - 2)
         return memo[n]
     
-    return dfs(n - 1) + dfs(n - 2)
+    return dfs(n)
 
 
 # dp
