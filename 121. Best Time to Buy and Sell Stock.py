@@ -1,8 +1,8 @@
 def maxProfit(prices: List[int]) -> int:
     minPrice = float('inf')
-    profit = 0
+    res = 0
     for price in prices:
-        profit = max(price - minPrice, profit)
+        res = max(res, price - minPrice)
         minPrice = min(price, minPrice)
 
-    return profit
+    return res
