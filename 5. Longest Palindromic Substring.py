@@ -1,3 +1,4 @@
+# two pointers O(n^2)
 def longestPalindrome(s: str) -> str:
     n = len(s)
     res = ""
