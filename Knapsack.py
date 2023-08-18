@@ -6,17 +6,17 @@ def knapSack(wt, val, W):
     def dfs(i, w):
         if (i, w) in memo:
             return memo[(i, w)]
-        if i == -1 or w == 0:
+        if i == n or w == 0:
             return 0
 
         if wt[i] <= w:
-            memo[(i, w)] = max(val[i] + dfs(i-1, w-wt[i]), dfs(i-1, w))
+            memo[(i, w)] = max(val[i] + dfs(i+1, w-wt[i]), dfs(i+1, w))
         else:
-            memo[(i, w)] = dfs(i-1, w)
+            memo[(i, w)] = dfs(i+1, w)
               
         return memo[(i, w)]
 
-    return dfs(n-1, W)
+    return dfs(0, W)
 
 
 # dp O(n*W)
