@@ -6,7 +6,8 @@ def longestCommonSubsequence(text1: str, text2: str) -> int:
         if (i, j) in memo:
             return memo[(i, j)]
 
-        if i == len(text1) or j == len(text2): return 0
+        if i == len(text1) or j == len(text2): 
+            return 0
 
         if text1[i] == text2[j]:
             memo[(i, j)] = dfs(i+1, j+1) + 1
