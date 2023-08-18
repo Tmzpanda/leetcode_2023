@@ -17,7 +17,6 @@ def change(amount: int, coins: List[int]) -> int:
             memo[(i, s)] = dfs(i, s - coins[i]) + dfs(i + 1, s)
         else:
             memo[(i, s)] = dfs(i + 1, s)
-            
         return memo[(i, s)]
 
     return dfs(0, amount)
