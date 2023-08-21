@@ -5,8 +5,8 @@ def ladderLength(beginWord: str, endWord: str, wordList: List[str]) -> int:
     # build graph
     graph = defaultdict(list)       
     for word in wordList:
-        for j in range(m):
-            pattern = word[:j]+'*'+word[j+1:]
+        for i in range(m):
+            pattern = word[:i]+'*'+word[i+1:]
             graph[pattern].append(word)
 
     # bfs
@@ -18,8 +18,8 @@ def ladderLength(beginWord: str, endWord: str, wordList: List[str]) -> int:
             word = q.popleft()
             if word == endWord:
                 return res
-            for j in range(m):
-                pattern = word[:j]+'*'+word[j+1:]
+            for i in range(m):
+                pattern = word[:i]+'*'+word[i+1:]
                 for nei in graph[pattern]:
                     if nei not in visited:
                         visited.add(nei)
