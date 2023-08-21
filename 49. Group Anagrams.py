@@ -13,7 +13,7 @@ def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
     for word in strs:
         char_counts = [0] * 26
         for char in word:
-            char_counts[ord(char) - ord('a')] += 1
+            char_counts[ord(char)-ord('a')] += 1
         anagram_dict[tuple(char_counts)].append(word)  # char_count as the key
 
     return anagram_dict.values()
