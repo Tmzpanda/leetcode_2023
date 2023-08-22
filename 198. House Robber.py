@@ -18,9 +18,10 @@ def rob(nums: List[int]) -> int:
 # dp
 def rob(nums: List[int]) -> int:
     n = len(nums)
+    # edge
     if n == 0: return 0
     if n == 1: return nums[0]
-    
+    # dp
     dp = [0] * n
     dp[0] = nums[0]
     dp[1] = max(nums[0], nums[1])
