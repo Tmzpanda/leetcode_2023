@@ -19,6 +19,9 @@ def longestCommonSubsequence(text1: str, text2: str) -> int:
     return dfs(0, 0)
 
 # dp
+"""
+dp[i][j] denotes length of LCS that ends at text1[:i] and text2[:j]
+"""
 def longestCommonSubsequence(text1: str, text2: str) -> int:
     m, n = len(text1), len(text2)
     dp = [[0]*(n+1) for _ in range(m+1)]
