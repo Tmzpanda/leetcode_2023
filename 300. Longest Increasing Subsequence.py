@@ -23,11 +23,12 @@ def lengthOfLIS(nums: List[int]) -> int:
  0  1  2  3
 [1, 2, 4, 3]
 
-LIS[0] = 1
-LIS[1] = max(1, 1+LIS[0]) = 2
-LIS[2] = max(1, 1+LIS[0], 1+LIS[1]) = 3
-LIS[3] = max(1, 1+LIS[0], 1+LIS[1]) = 3
+dp[0] = 1
+dp[1] = max(1, 1+dp[0]) = 2
+dp[2] = max(1, 1+dp[0], 1+dp[1]) = 3
+dp[3] = max(1, 1+dp[0], 1+dp[1]) = 3
 
+dp[i] denotes length of LIS at index i
 """
 def lengthOfLIS(nums: List[int]) -> int:
     n = len(nums)        
