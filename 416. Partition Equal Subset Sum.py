@@ -11,21 +11,20 @@ def canPartition(nums: List[int]) -> bool:
     def dfs(i, s):
         if s == 0:
             return True
-        if i == -1:
+        if i == n:
             return False
         if (i, s) in memo:
             return memo[(i, s)]
         
         if nums[i] <= s:
-            res = dfs(i - 1, s - nums[i]) or dfs(i - 1, s)
+            res = dfs(i + 1, s - nums[i]) or dfs(i + 1, s)
         else:
-            res = dfs(i - 1, s)
+            res = dfs(i + 1, s)
 
         memo[(i, s)] = res
         return res
 
-    return dfs(n - 1, subset_sum)
-    
+    return dfs(0, subset_sum)
   
 # dp
 """
