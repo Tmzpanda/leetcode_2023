@@ -8,7 +8,7 @@ def longestIncreasingPath(matrix: List[List[int]]) -> int:
         for x, y in [(i-1, j), (i+1, j), (i, j-1), (i, j+1)]:
             if 0 <= x < m and 0 <= y < n and matrix[x][y] > matrix[i][j]:
                 longest = max(longest, 1+dfs(x, y))
-
+                
         memo[(i, j)] = longest
         return memo[(i, j)]
 
