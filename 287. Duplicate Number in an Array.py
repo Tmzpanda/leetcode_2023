@@ -4,5 +4,4 @@ def findDuplicate(nums: List[int]) -> List[int]:
       
         if nums[i] < 0:
             return abs(num)
-            
         nums[i] = -nums[i]
