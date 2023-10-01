@@ -6,8 +6,7 @@ def shortestDistance(wordsDict: List[str], word1: str, word2: str) -> int:
     for i in range(size):
         if wordsDict[i] == word1:
             p1 = i
-
-        if wordsDict[i] == word2:
+        elif wordsDict[i] == word2:
             p2 = i
 
         if p1 != -1 and p2 != -1:
