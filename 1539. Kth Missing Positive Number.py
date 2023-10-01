@@ -36,9 +36,6 @@ def findKthPositive(arr: List[int], k: int) -> int:
         mid = (l + r) // 2
         missing = arr[mid] - (mid+1)
 
-        if missing == k:
-            index = missing
-
         if missing < k:
             l = mid + 1
         else:
