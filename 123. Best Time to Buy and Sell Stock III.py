@@ -1,4 +1,4 @@
-# dp
+# dp state machine
 def maxProfit(prices: List[int]) -> int:
     n = len(prices)
     buy1, sell1 = -prices[0], 0
