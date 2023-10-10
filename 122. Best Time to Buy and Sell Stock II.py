@@ -18,7 +18,7 @@ prices = [7,1,5,3,6,4]
     2
     3
     4   o    o
-    5   x denotes the maximum profit that can be obtained till day i, with state 0/1
+    5   x denotes the maximum profit that can be obtained till day i, with state 0/1 (not/buying)
 
 """
 def maxProfit(prices: List[int]) -> int:
