@@ -31,13 +31,13 @@ class MyLinkedList:
         if index < 0:
             index = 0
         
-        prev = self.head
+        pred = self.head
         for _ in range(index):
-            prev = prev.next
+            pred = pred.next
 
         node = ListNode(val)
-        node.next = prev.next
-        prev.next = node
+        node.next = pred.next
+        pred.next = node
 
         self.count += 1
 
@@ -45,13 +45,12 @@ class MyLinkedList:
         if index < 0 or index >= self.count:
             return
         
-        prev = self.head
+        pred = self.head
         for _ in range(index):
-            prev = prev.next
-        prev.next = prev.next.next
+            pred = pred.next
+        pred.next = pred.next.next
 
         self.count -= 1
-
 
 # DoubleLinkedList
 class ListNode:
