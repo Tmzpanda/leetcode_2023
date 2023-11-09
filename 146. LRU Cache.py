@@ -33,7 +33,7 @@ class LRUCache:
     def __init__(self, capacity: int):
         self.capacity = capacity
         self.lookup = {}  
-        self.head = ListNode(-1, -1)
+        self.head = ListNode(-1, -1)    # sentinel node as pseudo-head
         self.tail = ListNode(-1, -1)
         self.head.next = self.tail
         self.tail.prev = self.head
