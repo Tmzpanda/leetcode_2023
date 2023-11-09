@@ -21,7 +21,7 @@ class LRUCache:
             self.cache.popitem(last=False)  # pop from the beginning
 
           
-# LinkedList + lookup
+# DoubleLinkedList + lookup
 class ListNode:
     def __init__(self, key, val):
         self.key = key
