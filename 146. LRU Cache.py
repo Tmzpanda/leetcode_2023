@@ -62,12 +62,13 @@ class LRUCache:
             del self.lookup[node_to_delete.key]
 
     def add(self, node):
-        previous_end = self.tail.prev
-        previous_end.next = node
-        node.prev = previous_end
-        node.next = self.tail
-        self.tail.prev = node
+        pred, succ = self.tail.prev, self.tail
+        pred.next = node
+        node.prev = pred
+        node.next = succ
+        succ.prev = node
 
     def remove(self, node):
-        node.prev.next = node.next
-        node.next.prev = node.prev
+        pred, succ = node.prev, node.next
+        pred.next = succ
+        succ.prev = pred
