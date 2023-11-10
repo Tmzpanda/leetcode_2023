@@ -44,7 +44,7 @@ class LRUCache:
         
         node = self.lookup[key]
         self.remove(node)   # move to the end
-        self.add(node)
+        self.append(node)
         return node.val
 
     def put(self, key: int, value: int) -> None:
@@ -54,14 +54,14 @@ class LRUCache:
 
         node = ListNode(key, value)
         self.lookup[key] = node
-        self.add(node)
+        self.append(node)
 
         if len(self.lookup) > self.capacity:
             node_to_delete = self.head.next  # pop from the beginning
             self.remove(node_to_delete)
             del self.lookup[node_to_delete.key]
 
-    def add(self, node):
+    def append(self, node):
         pred, succ = self.tail.prev, self.tail
         pred.next = node
         node.prev = pred
