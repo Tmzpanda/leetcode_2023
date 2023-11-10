@@ -6,9 +6,8 @@
 """
 
 def removeNthFromEnd(head, n):
-    dummy = ListNode(0)
+    slow = fast = dummy = ListNode(-1)
     dummy.next = head
-    slow = fast = dummy
     
     for _ in range(n):
         fast = fast.next   
