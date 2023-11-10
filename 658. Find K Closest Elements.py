@@ -1,8 +1,9 @@
+#
 def findClosestElements(arr: List[int], k: int, x: int) -> List[int]:
       n = len(arr)
       r = searchUpperClosest(arr, x)
       l = r - 1
-  
+
       while r-l-1 < k:
           if l == -1:
               r += 1
@@ -28,3 +29,24 @@ def searchUpperClosest(nums, target):
           else:
               r = mid - 1
       return l
+
+# 
+def findClosestElements(self, arr: List[int], k: int, x: int) -> List[int]:
+        n = len(arr)
+        r = searchUpperClosest(arr, x)
+        l = r - 1
+
+        for _ in range(k):
+            if l >= 0 and r < n:
+                if x-arr[l] <= arr[r]-x:
+                    l -= 1
+                else:
+                    r += 1
+            elif r == n:
+                l -= 1
+            else:
+                r += 1
+
+        return arr[l+1:r]
+
+# heap
