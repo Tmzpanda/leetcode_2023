@@ -89,4 +89,69 @@ class MyCircularQueue:
     def isFull(self) -> bool:
         return self.count == self.capacity
         
+# DoubleLinkedList
+class ListNode:
+    def __init__(self, value):
+        self.value = value
+        self.next = None
 
+class MyCircularQueue:
+    def __init__(self, k: int):
+        self.capacity = k
+        self.head = ListNode(-1)    
+        self.tail = ListNode(-1)   
+        self.head.next = self.tail
+        self.tail.prev = self.head
+        self.count = 0
+        
+    def enQueue(self, value: int) -> bool:
+        if self.count == self.capacity:
+            return False
+
+        node = ListNode(value)
+        pred, succ = self.tail.prev, self.tail
+        pred.next = node
+        node.prev = pred
+        node.next = succ
+        succ.prev = node
+
+        self.count += 1
+        return True
+
+    def deQueue(self) -> bool:
+        if self.count == 0:
+            return False
+        
+        pred, succ = self.head, self.head.next.next
+        pred.next = succ
+        succ.prev = pred
+
+        self.count -= 1
+        return True
+
+    def Front(self) -> int:
+        if self.count == 0:
+            return -1
+        return self.head.next.value
+
+    def Rear(self) -> int:
+        if self.count == 0:
+            return -1
+        return self.tail.prev.value
+
+    def isEmpty(self) -> bool:
+        return self.count == 0
+        
+    def isFull(self) -> bool:
+        return self.count == self.capacity
+        
+
+
+# Your MyCircularQueue object will be instantiated and called as such:
+# obj = MyCircularQueue(k)
+# param_1 = obj.enQueue(value)
+# param_2 = obj.deQueue()
+# param_3 = obj.Front()
+# param_4 = obj.Rear()
+# param_5 = obj.isEmpty()
+# param_6 = obj.isFull()
