@@ -1,10 +1,8 @@
-# 19. Remove Nth Node from the end - one pass
 """
  dummy -> 1 -> 2 -> 3 -> 4              n = 2
                          f          
                s
 """
-
 def removeNthFromEnd(head, n):
     slow = fast = dummy = ListNode(-1)
     dummy.next = head
