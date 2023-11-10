@@ -1,7 +1,6 @@
 def addTwoNumbers(l1: ListNode, l2: ListNode) -> ListNode:
-    dummy = ListNode(-1)
-    tail = dummy
-    
+    pred = dummy = ListNode(-1)
+        
     carry = 0 
     while l1 or l2 or carry:
         num = 0 
@@ -15,7 +14,8 @@ def addTwoNumbers(l1: ListNode, l2: ListNode) -> ListNode:
         digit, carry = num % 10, num // 10
         node = ListNode(digit)
         
-        tail.next = node 
-        tail = node
+        pred.next = node 
+        pred = node
 
     return dummy.next
+    
