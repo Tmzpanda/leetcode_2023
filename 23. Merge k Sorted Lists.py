@@ -26,3 +26,27 @@ def merge(l1: ListNode, l2: ListNode) -> ListNode:
 
     cur.next = l1 or l2
     return dummy.next 
+
+
+# heap
+from heapq import heappush, heappop
+
+ListNode.__lt__ = lambda x, y: (x.val < y.val)
+
+def mergeKLists(lists: List[Optional[ListNode]]) -> Optional[ListNode]:
+    pred = dummy = ListNode(-1)
+    
+    heap = []
+    for node in lists:
+        if node:
+            heappush(heap, node)
+
+    while heap:
+        node = heappop(heap)
+        pred.next = node
+        if node.next:
+            heappush(heap, node.next)
+        pred = node
+
+    return dummy.next
+
