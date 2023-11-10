@@ -13,12 +13,12 @@ def hasCycle(head: Optional[ListNode]) -> bool:
 def hasCycle(head: Optional[ListNode]) -> bool:
     if head is None or head.next is None:
         return False
-    sp = head
-    fp = head.next
-    while sp != fp:
-        if fp is None or fp.next is None:
+    slow = head
+    fast = head.next
+    while slow != fast:
+        if fast is None or fast.next is None:
             return False
-        sp = sp.next
-        fp = fp.next.next
+        slow = slow.next
+        fast = fast.next.next
 
     return True
