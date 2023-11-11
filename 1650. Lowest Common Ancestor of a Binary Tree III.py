@@ -7,7 +7,6 @@ def lowestCommonAncestor(p: 'Node', q: 'Node') -> 'Node':
     while q:
         if q.val in visited: 
             return q
-        visited.add(q.val)
         q = q.parent
         
     return None
