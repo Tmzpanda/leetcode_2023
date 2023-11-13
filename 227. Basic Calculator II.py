@@ -2,11 +2,11 @@ def calculate(s: str) -> int:
     stack = []
     pre_op = '+'
     num = 0
-    for c in s+'+':
+    for c in s:
         if c.isdigit():
             num = num*10 + int(c)
             
-        if c in ('+', '-', '*', '/'):
+        if c in '+-*/':
             if pre_op == '+': stack.append(num)
             elif pre_op == '-': stack.append(-num)
             elif pre_op == '*': stack.append(stack.pop()*num)
