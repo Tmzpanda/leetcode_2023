@@ -5,7 +5,7 @@ def isValid(s: str) -> bool:
         '{': '}',
         '[': ']'
     }
-
+    
     for char in s:
         if char in mapping:
             stack.append(char)
