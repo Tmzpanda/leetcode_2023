@@ -3,16 +3,16 @@ class MovingAverage:
         self.size = size
         self.total = 0
         self.length = 0
-        self.queue = deque()
+        self.window = deque()
       
     def next(self, val: int) -> float:
         if self.length < self.size:
-            self.queue.append(val)
+            self.window.append(val)
             self.length += 1
             self.total += val      
         else:
-            self.queue.append(val)
-            self.total -= self.queue.popleft()
+            self.window.append(val)
+            self.total -= self.window.popleft()
             self.total += val
             
         return self.total/self.length
