@@ -1,4 +1,5 @@
-def decodeString(s: str) -> str:    # "3[a2[c]]"
+# "3[a2[c]]"
+def decodeString(s: str) -> str:    
     stack = []
     cstr = ""
     num = 0
