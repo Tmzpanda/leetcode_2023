@@ -11,7 +11,7 @@ def calculate(s: str) -> int:
             if pre_op == '+': stack.append(num)
             elif pre_op == '-': stack.append(-num)
             elif pre_op == '*': stack.append(stack.pop()*num)
-            elif pre_op == '/': stack.append(math.trunc(stack.pop()/num))   # -3/2
+            elif pre_op == '/': stack.append(int(stack.pop()/num))   # -3/2
 
             pre_op = c
             num = 0
