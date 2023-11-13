@@ -1,20 +1,17 @@
 def decodeString(s: str) -> str: 
     stack = []
-    res = ""
+    cstr = ""
     num = 0
     for char in s:
         if char.isdigit():
             num = num * 10 + int(char)
         if char.isalpha():
-            res += char
+            cstr += char
         if char == '[':
-            stack.append(res)
-            stack.append(num)
-            res = ""
-            num = 0
+            stack.append((cstr, num))
+            cstr, num = "", 0
         if char == ']':
-            pnum = stack.pop()
-            pstr = stack.pop()
-            res = pstr + pnum*res
+            pstr, pnum = stack.pop()
+            cstr = pstr + pnum*cstr 
 
-    return res
+    return cstr
