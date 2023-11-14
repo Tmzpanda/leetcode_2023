@@ -1,3 +1,11 @@
+"""
+index   -1 0   1  2
+          [2, -1, 3]    k = 3
+psum     0 2   1  4
+psumq    0     1  4
+
+"""
+
 def shortestSubarray(self, nums: List[int], k: int) -> int:
     n = len(nums)
     psum = 0
@@ -9,7 +17,7 @@ def shortestSubarray(self, nums: List[int], k: int) -> int:
         while psumq and psum - psumq[0][1] >= k:
             res = min(res, i-psumq[0][0])
             psumq.popleft()
-        while psumq and psum <= psumq[-1][1]:    # mono-increasing
+        while psumq and psum <= psumq[-1][1]:    # increasing
             psumq.pop()
         psumq.append((i, psum))
 
