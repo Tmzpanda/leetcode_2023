@@ -22,4 +22,27 @@ def intersection(nums1: List[int], nums2: List[int]) -> List[int]:
 
     return list(set(res))
 
-# 
+# binary search
+def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
+    nums1.sort()
+    nums2.sort()
+    res = []
+
+    for num in nums1:
+        if binarySearchFound(nums2, num):
+            res.append(num)
+
+    return list(set(res))
+
+def binarySearchFound(nums, target):
+    l, r = 0, len(nums) - 1
+    while l <= r:
+        mid = (l + r) // 2
+        if nums[mid] == target:
+            return True
+        if nums[mid] < target:
+            l = mid + 1
+        else:
+            r = mid - 1
+            
+    return False
