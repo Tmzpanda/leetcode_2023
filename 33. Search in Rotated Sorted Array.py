@@ -1,11 +1,11 @@
 """
-                   o 6
-                 o 5
-               o 4
-             ---------------           
-                          o 3
-                        o 2  
-                      o 1
+       o 6
+     o 5
+   o 4
+ ---------------           
+              o 3
+            o 2  
+          o 1
 """
 def search(nums: List[int], target: int) -> int:
     l, r = 0, len(nums) - 1
