@@ -1,12 +1,12 @@
 # sort O(nlogn)
 def topKFrequent(nums: List[int], k: int) -> List[int]:
-    numToFreq = defaultdict(int)
+    freq_dict = defaultdict(int)
     res = []
 
     for num in nums:
-        numToFreq[num] += 1
+        freq_dict[num] += 1
       
-    items = sorted(numToFreq.items(), key=lambda x: -x[1])
+    items = sorted(freq_dict.items(), key=lambda x: -x[1])
     for i in range(k):
         res.append(items[i][0])
 
@@ -16,14 +16,14 @@ def topKFrequent(nums: List[int], k: int) -> List[int]:
 # heap O(nlogk)
 from heapq import heappush, heappop
 def topKFrequent(nums: List[int], k: int) -> List[int]:
-        numToFreq = defaultdict(int)
+        freq_dict = defaultdict(int)
         res = []
 
         for num in nums:
-            numToFreq[num] += 1
+            freq_dict[num] += 1
 
         heap = []
-        for num, freq in numToFreq.items():
+        for num, freq in freq_dict.items():
             heappush(heap, (freq, num))
             if len(heap) > k:
                 heappop(heap)
