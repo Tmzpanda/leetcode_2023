@@ -52,20 +52,20 @@ def sortArray(nums: List[int]) -> List[int]:
     def quickSort(arr, start, end):
         if start < end:      
             # partition
-            pivot = nums[random.randint(start, end)]
+            pivot = arr[random.randint(start, end)]
             l, r = start, end
             while l <= r:
-                while l <= r and nums[l] < pivot:
+                if arr[l] >= pivot and arr[r] <= pivot:
+                    arr[l], arr[r] = arr[r], arr[l]
                     l += 1
-                while l <= r and nums[r] > pivot:
                     r -= 1
-                if l <= r:
-                    nums[l], nums[r] = nums[r], nums[l]
+                elif arr[l] < pivot:
                     l += 1
+                else:
                     r -= 1
             quickSort(arr, start, r)
             quickSort(arr, l, end)
-        
+
         return arr
 
     return quickSort(nums, 0, len(nums) - 1)
