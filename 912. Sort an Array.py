@@ -24,8 +24,30 @@ def mergeSort(nums: List[int]) -> List[int]:
   
     return merged 
 
+# quick sort
+# TLE
+def sortArray(nums: List[int]) -> List[int]:
+    def quickSort(arr, l, r):
+        if l < r:
+            p = partition(arr, l, r)
+            quickSort(arr, l, p - 1)
+            quickSort(arr, p + 1, r)
 
-# O(nlogn) O(1)
+        return arr
+
+    def partition(arr, l, r):
+        pivot = arr[r]
+        p = l
+        for i in range(l, r):
+            if arr[i] <= pivot:
+                arr[p], arr[i] = arr[i], arr[p]
+                p += 1
+        arr[p], arr[r] = arr[r], arr[p]
+        return p
+
+    return quickSort(nums, 0, len(nums) - 1)
+        
+# quick sort
 def sortArray(nums: List[int]) -> List[int]:
    def quickSort(start, end):
         # base
