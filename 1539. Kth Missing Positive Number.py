@@ -21,13 +21,12 @@ def findKthPositive(arr: List[int], k: int) -> int:
 nums[i]
 nums[i] - (i+1) denotes #of missing number at given index i
 
-nums[i] =         [1, 3, 4, 6]
-nums[i] - (i+1) = [0, 1, 1, 2]
+nums[] =    [1, 3, 4, 8]
+missing[] = [0, 1, 1, 4]    
+binary search largest i so that missing[i] < k
 
-binary search last index so that `nums[i] - (i+1) <= k`
-
-#of missing number between nums[i-1] and nums[i] is k - (nums[i-1] - i),
-the kth missing number is nums[i-1] + k - (nums[i-1] - i) = i + k
+#of missing number between nums[i] and nums[i+1] is (k - missing[i]),
+kth missing number is nums[i] + k-(nums[i]-(i+1))
 
 """
 def findKthPositive(arr: List[int], k: int) -> int:
@@ -37,9 +36,9 @@ def findKthPositive(arr: List[int], k: int) -> int:
         missing = arr[mid] - (mid+1)
 
         if missing < k:
+            index = mid 
             l = mid + 1
         else:
             r = mid - 1
 
-    return l + k
-    
+    return arr[index] + k-(arr[index]-(index+1))
