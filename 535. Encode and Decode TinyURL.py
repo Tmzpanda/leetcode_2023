@@ -16,6 +16,7 @@ class Codec:
         # convert decimal to BASE62
         arr = []
         base = len(self.alphabet)
+        quotient = self.num
         while quotient:
             quotient, remainder = divmod(self.num, base)    
             arr.append(alphabet[remainder])
