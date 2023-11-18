@@ -6,9 +6,9 @@ def isAnagram(s: str, t: str) -> bool:
 # dict
 from collections import defaultdict
 def isAnagram(s: str, t: str) -> bool:
-    charToFreq = defaultdict(int)
+    freq_dict = defaultdict(int)
     for char in s:
-        charToFreq[char] += 1
+        freq_dict[char] += 1
     for char in t:
-        charToFreq[char] -= 1
-    return all(v == 0 for v in charToFreq.values())
+        freq_dict[char] -= 1
+    return all(v == 0 for v in freq_dict.values())
