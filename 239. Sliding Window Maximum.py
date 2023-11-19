@@ -14,8 +14,7 @@ def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
 
     l, r = 0, 0
     while r < len(nums):
-        # mono-increasing
-        while q and nums[q[-1]] < nums[r]:
+        while q and nums[q[-1]] < nums[r]: # mono-increasing
             q.pop()
         q.append(r)
 
