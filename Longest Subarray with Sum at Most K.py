@@ -5,10 +5,10 @@ def maxSubArrayLen(target: int, nums: List[int]) -> int:
 
     start = 0
     for i in range(n):
+        total += nums[i]
         while total > target:
             total -= nums[start]
             start += 1
-        total += nums[i]
         res = max(res, i - start + 1)
 
     return res
