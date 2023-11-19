@@ -32,7 +32,34 @@ def maxSubArrayLen(target: int, nums: List[int]) -> int:
 
 
 # Longest Subarray with Sum at Most K (with negative values)
-def longestSubarray(self, nums: List[int], k: int) -> int:
+"""
+index     -1 0  1  2   3 
+            [1, 2, 3, -1]    k = 5
+psum       0 1  3  6   5
+psumq      0 1  3      5
+
+
+"""
+def longestSubarray(nums: List[int], k: int) -> int:
+    n = len(nums)
+    psum = 0
+    res = 0
+    psumq = deque([(-1, 0)])
+
+    for i in range(n):
+        psum += nums[i]
+
+        for p_i, p_psum in psumq:    # since we can have negative numbers, we can't simply popleft, we need to check all valid subarrays
+            if psum - p_psum <= k:
+                res = max(res, i - p_i)
+                continue
+
+        while psumq and psum < psumq[-1][1]:     # non-decreasing
+            psumq.pop()
+            
+        psumq.append((i, psum))
+
+    return res
 
 
 
