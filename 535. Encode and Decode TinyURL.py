@@ -18,7 +18,7 @@ class Codec:
         base = len(self.alphabet)
         quotient = self.num
         while quotient:
-            quotient, remainder = divmod(self.num, base)    
+            quotient, remainder = divmod(quotient, base)    
             arr.append(alphabet[remainder])
         arr.reverse()
         shortUrl = ''.join(arr)
