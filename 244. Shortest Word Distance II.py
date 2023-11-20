@@ -1,13 +1,13 @@
 class WordDistance:
     def __init__(self, wordsDict: List[str]):
-        self.wordToIndex = defaultdict(list)
+        self.index_dict = defaultdict(list)
         for i, word in enumerate(wordsDict):
-            self.wordToIndex[word].append(i)
+            self.index_dict[word].append(i)
         
 
     def shortest(self, word1: str, word2: str) -> int:
-        arr1 = self.wordToIndex[word1]
-        arr2 = self.wordToIndex[word2]
+        arr1 = self.index_dict[word1]
+        arr2 = self.index_dict[word2]
         res = sys.maxsize
 
         p1, p2 = 0, 0
