@@ -10,7 +10,7 @@ class TwoSum:
         for num in self.freq_dict:
             complement = value - num
             if complement in self.freq_dict:    
-                if complement != num or self.freq_dict[num] > 1:    # if the current number and its complement are the same
+                if complement != num or self.freq_dict[num] > 1:    # if current number and its complement are the same
                     return True
 
         return False
