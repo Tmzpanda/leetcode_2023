@@ -1,10 +1,10 @@
 # O(n)
 def twoSum(nums: List[int], target: int) -> List[int]:
-    num_dict = {}
+    index_dict = {}
     for i, num in enumerate(nums):
-        if target - num in num_dict:
-            return [num_dict[target - num], i]
-        num_dict[num] = i
+        if target - num in index_dict:
+            return [index_dict[target - num], i]
+        index_dict[num] = i
 
     return []
 
