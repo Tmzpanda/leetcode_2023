@@ -1,15 +1,15 @@
 from collections import deque
-class FirstUnique:
+class Firstunique_dict:
     def __init__(self, nums: List[int]):
         self.queue = deque()
-        self.unique = {}
+        self.unique_dict = {}
         for num in nums:
             self.add(num)
 
-    def showFirstUnique(self) -> int:
+    def showFirstunique_dict(self) -> int:
         while self.queue:
             head = self.queue[0]
-            if self.unique[head]:
+            if self.unique_dict[head]:
                 return head
             else:
                 self.queue.popleft()
@@ -18,9 +18,9 @@ class FirstUnique:
     def add(self, value: int) -> None:
         self.queue.append(value)
 
-        if value not in self.unique:
-            self.unique[value] = True
+        if value not in self.unique_dict:
+            self.unique_dict[value] = True
         else:
-            self.unique[value] = False
+            self.unique_dict[value] = False
 
 
