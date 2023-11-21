@@ -23,6 +23,7 @@ def maxProfit(self, prices: List[int]) -> int:
       
     return dp[n-1][0]
 
+# space optimization
 # state machine
 def maxProfit(prices: List[int]) -> int:
     n = len(prices)
