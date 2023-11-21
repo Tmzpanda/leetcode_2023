@@ -8,7 +8,6 @@ def reverse(self, x: int) -> int:
 
     res = 0
     while x:
-        # x, remainder = divmod(x, 10)
         x, remainder = int(x/10), int(math.fmod(x, 10))
         if (res > MAX//10) or (res == MAX//10 and remainder >= MAX%10):
             return 0
