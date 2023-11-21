@@ -26,6 +26,7 @@ def uniquePathsIII(grid: List[List[int]]) -> int:
     dfs(start_i, start_j, empty)
     return res
 
+# bit masking dp
 def uniquePathsIII(self, grid: List[List[int]]) -> int:
     m, n = len(grid), len(grid[0]) 
     mask = 0    # represent the state of each cell
