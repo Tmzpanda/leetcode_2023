@@ -9,9 +9,9 @@ def wordBreak(s: str, wordDict: List[str]) -> bool:
         if not s:
             return True
 
-        for i in range(1, len(s)+1):
-            word = s[:i]
-            if word in wordDict and dfs(s[i:]) == True:
+       for i in range(len(s)):
+            word = s[:i+1]
+            if word in wordDict and dfs(s[i+1:]) == True:
                 memo[s] = True
                 return memo[s]
         
