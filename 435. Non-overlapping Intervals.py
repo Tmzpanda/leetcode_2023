@@ -1,11 +1,11 @@
 """
 Relationships between adjacent intervals:
 
-start >= prevEnd:
+1. start >= prevEnd:
 x-----x 
       x---x
 
-start < prevEnd:
+2. start < prevEnd:
 ①
 x-----x
     x---x
