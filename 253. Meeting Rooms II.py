@@ -21,3 +21,17 @@ def minMeetingRooms(intervals: List[List[int]]) -> int:
         
     return res
 
+# heap
+def minMeetingRooms(intervals: List[List[int]]) -> int:
+    intervals.sort()
+
+    ends = []
+    heappush(ends, intervals[0][1])
+    
+    for start, end in intervals[1:]:
+        if start >= ends[0]:
+            heappop(ends)
+        
+        heappush(ends, end)
+
+    return len(ends)
