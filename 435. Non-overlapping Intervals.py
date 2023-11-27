@@ -1,20 +1,3 @@
-"""
-Relationships between adjacent intervals:
-
-1. start >= prevEnd:
-x-----x 
-      x---x
-
-2. start < prevEnd:
-①
-x-----x
-    x---x
-②
-x-----x
-  x--x
-
-"""
-
 # O(nlogn)
 def eraseOverlapIntervals(intervals: List[List[int]]) -> int:
     intervals = sorted(intervals)
