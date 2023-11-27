@@ -17,16 +17,16 @@ def can_fly(start, end, flights):
     for (src, start_time), (dest, end_time) in flights:
         graph[src].append((dest, start_time, end_time))
 
-    heap = [(0, start, [])]  # (current time, current airport, path taken)
+    heap = [(0, start, [])]  
     while heap:
         current_time, current_airport, path = heapq.heappop(heap)
 
         if current_airport == end:
             return True, path
 
-        for next_airport, departure_time, arrival_time in graph[current_airport]:
-            if departure_time >= current_time:
-                heapq.heappush(heap, (arrival_time, next_airport, path + [(current_airport, departure_time, next_airport, arrival_time)]))
+        for next_airport, start_time, end_time in graph[current_airport]:
+            if start_time >= current_time:
+                heapq.heappush(heap, (end_time, next_airport, path + [(current_airport, start_time, next_airport, end_time)]))
 
     return False, []
 
