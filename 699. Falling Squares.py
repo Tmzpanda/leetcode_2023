@@ -17,3 +17,19 @@ def fallingSquares(positions: List[List[int]]) -> List[int]:
         res.append(highest)
 
     return res
+
+# segment tree
+def fallingSquares(self, positions: List[List[int]]) -> List[int]:
+    tree = SegmentTree()
+    res = []
+    highest = 0
+    for start, size in positions:
+        start, end, height = start, start+size, size
+        preHighest = tree.query(tree.root, start, end)
+        height += preHighest
+        tree.update(tree.root, start, end, height)
+
+        highest = max(highest, height)
+        res.append(highest)
+
+    return res
