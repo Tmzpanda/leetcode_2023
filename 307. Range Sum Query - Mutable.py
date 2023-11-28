@@ -1,58 +1,69 @@
-class Node:
+class TreeNode:
     def __init__(self, start, end):
         self.start = start
         self.end = end
-        self.total = 0
         self.left = None
         self.right = None
+        self.total = 0
 
-class NumArray:
-    def __init__(self, nums: List[int]):
-        def createTree(nums, l, r):
-            if l > r: 
+class SegmentTree:
+    def __init__(self, nums):
+        def build(l, r):
+            if l > r:
                 return None
-            if l == r: 
-                node = Node(l, r)
+            if l == r:
+                node = TreeNode(l, r)
                 node.total = nums[l]
                 return node
-
-            mid = (l+r) // 2
-            root = Node(l, r)
-            root.left = createTree(nums, l, mid)
-            root.right = createTree(nums, mid + 1, r)
+            
+            root = TreeNode(l, r)
+            mid = (l + r) // 2
+            root.left = build(l, mid)
+            root.right = build(mid+1, r)
             root.total = root.left.total + root.right.total
 
             return root
-        self.root = createTree(nums, 0, len(nums)-1)
-        
-    def update(self, index: int, val: int) -> None:
-        def updateTree(root, i, val):
+
+        self.root = build(0, len(nums)-1)
+
+    def update(self, index, val):
+        def dfs(root):
             if root.start == root.end:
                 root.total = val
-                return val
+                return
 
             mid = (root.start + root.end) // 2
-            if i <= mid:
-                updateTree(root.left, i, val)
+            if index <= mid:
+                dfs(root.left)
             else:
-                updateTree(root.right, i, val)
-            
+                dfs(root.right)
+
             root.total = root.left.total + root.right.total
-            return root.total
 
-        return updateTree(self.root, index, val)
+        dfs(self.root)
 
-    def sumRange(self, left: int, right: int) -> int:
-        def queryTree(root, i, j):
-            if root.start == i and root.end == j:
+    def query(self, left, right):
+        def dfs(root, left, right):
+            if root.start == left and root.end == right:
                 return root.total
             
             mid = (root.start + root.end) // 2
-            if j <= mid:
-                return queryTree(root.left, i, j)
-            elif i >= mid + 1:
-                return queryTree(root.right, i, j)
+            if right <= mid:
+                return dfs(root.left, left, right)
+            elif left >= mid+1:
+                return dfs(root.right, left, right)
             else:
-                return queryTree(root.left, i, mid) + queryTree(root.right, mid + 1, j)
+                return dfs(root.left, left, mid) + dfs(root.right, mid+1, right)
 
-        return queryTree(self.root, left, right)
+        return dfs(self.root, left, right)
+
+class NumArray:
+    def __init__(self, nums: List[int]):
+        self.tree = SegmentTree(nums)
+        
+    def update(self, index: int, val: int) -> None:
+        self.tree.update(index, val)
+        
+    def sumRange(self, left: int, right: int) -> int:
+        return self.tree.query(left, right)
+
