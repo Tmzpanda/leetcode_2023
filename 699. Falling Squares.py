@@ -7,7 +7,8 @@ def fallingSquares(positions: List[List[int]]) -> List[int]:
 
         preHighest = 0
         for preStart, preEnd, preHeight in prePositions:
-            if start >= preEnd or end <= preStart: continue
+            if start >= preEnd or end <= preStart: 
+                continue
             else:
                 preHighest = max(preHighest, preHeight)
                 
