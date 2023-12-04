@@ -14,13 +14,12 @@ def minCostConnectPoints(points: List[List[int]]) -> int:
     heap = [(0, 0)]  
     while heap:
         cost, i = heappop(heap)
-        if i in visited:
-            continue
-        visited.add(i)
-        res += cost
-        if len(visited) == n: 
-            return res
-        for nei, neiCost in graph[i]:
-            if nei not in visited:
-                heappush(heap, (neiCost, nei))
-
+        if i not in visited:
+            visited.add(i)
+            res += cost
+            if len(visited) == n: 
+                return res
+            for nei, neiCost in graph[i]:
+                if nei not in visited:
+                    heappush(heap, (neiCost, nei))
+    
