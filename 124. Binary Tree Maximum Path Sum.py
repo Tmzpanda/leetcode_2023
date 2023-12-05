@@ -8,9 +8,9 @@ def maxPathSum(root: Optional[TreeNode]) -> int:
         
         leftMax = dfs(root.left)
         rightMax = dfs(root.right)
-        res = max(res, root.val + leftMax + rightMax)
+        res = max(res, root.val + leftMax + rightMax)  
 
-        return max(root.val + max(leftMax, rightMax), 0)
+        return max(root.val + max(leftMax, rightMax), 0)    # a node can only appear in the sequence at most once
 
     dfs(root)
     return res
