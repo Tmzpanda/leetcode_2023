@@ -11,8 +11,9 @@ def pathSum(root: Optional[TreeNode], targetSum: int) -> int:
         psum += node.val
         if psum-targetSum in psum_dict:
             count += psum_dict[psum-targetSum]
+            
         psum_dict[psum] += 1
-
+        
         dfs(node.left, psum)
         dfs(node.right, psum)
 
