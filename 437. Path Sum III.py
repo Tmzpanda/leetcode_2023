@@ -1,4 +1,4 @@
-def pathSum(self, root: Optional[TreeNode], targetSum: int) -> int:
+def pathSum(root: Optional[TreeNode], targetSum: int) -> int:
     psum_dict = defaultdict(int)
     psum_dict[0] = 1
     count = 0
