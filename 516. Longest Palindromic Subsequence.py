@@ -1,4 +1,8 @@
 def longestPalindromeSubseq(s: str) -> int:
+    return longestCommonSubsequence(s, s[::-1])
+
+# dfs
+def longestPalindromeSubseq(s: str) -> int:
     memo = {}
     def dfs(i, j):
         if i == j: return 1
