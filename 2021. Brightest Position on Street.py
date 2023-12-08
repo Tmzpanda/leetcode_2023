@@ -9,6 +9,7 @@ def brightestPosition(lights: List[List[int]]) -> int:
     brightness, max_brightness = 0, 0
     for position, delta in brightChange:
         brightness += delta
+        
         if brightness > max_brightness:
             res = position
             max_brightness = brightness
