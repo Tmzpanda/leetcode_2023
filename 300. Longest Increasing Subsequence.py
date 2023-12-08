@@ -39,3 +39,28 @@ def lengthOfLIS(nums: List[int]) -> int:
                 dp[i] = max(dp[i], dp[j] + 1)
     
     return max(dp) 
+
+
+# binary search
+def lengthOfLIS(nums: List[int]) -> int:
+    def searchInsert(nums, target) -> int:
+        l, r = 0, len(nums) - 1
+        while l <= r:
+            mid = (l + r) // 2
+            if nums[mid] == target:
+                return mid
+            if nums[mid] < target:
+                l = mid + 1
+            else:
+                r = mid - 1
+        return l
+
+    arr = [nums[0]]
+    for num in nums[1:]:
+        i = searchInsert(arr, num)
+        if i == len(arr):
+            arr.append(num)     #
+        else:
+            arr[i] = num
+
+    return len(arr)
