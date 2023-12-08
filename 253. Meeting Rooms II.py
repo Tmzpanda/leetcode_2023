@@ -26,12 +26,11 @@ def minMeetingRooms(intervals: List[List[int]]) -> int:
     intervals.sort()
 
     heap = []
-    heappush(heap, intervals[0][1])
     
-    for start, end in intervals[1:]:
-        if start >= heap[0]:
+    for start, end in intervals:
+        if heap and start >= heap[0]:
             heappop(heap)
-        
+
         heappush(heap, end)
 
     return len(heap)
