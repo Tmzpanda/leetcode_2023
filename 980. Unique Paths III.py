@@ -35,7 +35,7 @@ def uniquePathsIII(self, grid: List[List[int]]) -> int:
             if grid[i][j] == 1: 
                 start_i, start_j = i, j
             if grid[i][j] == -1 or grid[i][j] == 1: 
-                mask ^= 1 << i*n+j  # set bit
+                mask |= 1 << i*n+j  # set bit
 
     @cache
     def dfs(i, j, mask):
@@ -47,7 +47,7 @@ def uniquePathsIII(self, grid: List[List[int]]) -> int:
             if 0 <= x < m and 0 <= y < n:
                 k = x*n+y
                 if not mask & 1<<k: # if kth bit is set
-                    res += dfs(x, y, mask ^ 1<<k)
+                    res += dfs(x, y, mask | 1<<k)
                 
         return res
     
