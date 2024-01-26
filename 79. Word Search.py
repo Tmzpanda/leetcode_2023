@@ -18,6 +18,7 @@ def exist(board: List[List[str]], word: str) -> bool:
                 visited.add((i, j))
                 if dfs(i, j, 1):
                     return True
+                visited.remove((i, j))
                 
     return False
     
