@@ -11,7 +11,7 @@ def minMeetingRooms(intervals: List[List[int]]) -> int:
     for interval in intervals:
         roomChange.append((interval[0], 1))
         roomChange.append((interval[1], -1))
-    roomChange.sort()
+    roomChange.sort() # if (0, 8) and (8, 10) is not considered conflict
         
     res = 0
     count = 0
@@ -28,7 +28,7 @@ def minMeetingRooms(intervals: List[List[int]]) -> int:
     heap = []
     
     for start, end in intervals:
-        if heap and start >= heap[0]:
+        if heap and start >= heap[0]: # if (0, 8) and (8, 10) is not considered conflict
             heappop(heap)
 
         heappush(heap, end)
